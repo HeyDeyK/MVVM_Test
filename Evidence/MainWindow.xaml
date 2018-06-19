@@ -7,6 +7,45 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <TabControl>
+            <TabItem Header="Přidávání">
+                <Canvas>
+                    <Label Content="Křestní" Canvas.Left="10" Canvas.Top="10"></Label>
+                    <TextBox Canvas.Left="10" Canvas.Top="36" Height="20" Width="167" Text="{Binding TxtKrestni,UpdateSourceTrigger=PropertyChanged}">
+
+                    </TextBox>
+                    <Label Content="Příjmení" Canvas.Left="10" Canvas.Top="61"></Label>
+                    <TextBox Canvas.Left="10" Canvas.Top="87" Height="20" Width="167" Text="{Binding TxtPrijmeni,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+
+                    <Label Content="Telefon" Canvas.Left="10" Canvas.Top="112"/>
+                    <TextBox Canvas.Left="10" Canvas.Top="138" Height="20" Width="167" Text="{Binding TxtTelefon, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Button Content="Uložit" Command="{Binding ClickCommand}" Height="28" Width="145" Canvas.Left="10" Canvas.Top="253" ></Button>
+
+                </Canvas>
+            </TabItem>
+            <TabItem Header="Výpis">
+                <Canvas>
+                    <ListView ItemsSource="{Binding Files}" Height="143" Width="453" Canvas.Left="26" Canvas.Top="10" SelectedItem="{Binding Selected}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Křestní" DisplayMemberBinding="{Binding Krestni}" Width="150"/>
+                                <GridViewColumn Header="Příjmení" DisplayMemberBinding="{Binding Prijmeni}" Width="150"/>
+                                <GridViewColumn Header="Telefon" DisplayMemberBinding="{Binding Telefon}" Width="150"/>
+                            </GridView>
+                        </ListView.View>
+
+                    </ListView>
+                    <Button Content="Uložit" Canvas.Left="444" Canvas.Top="261" Command="{Binding SaveCommand}"></Button>
+                    <Label Content="Křestní" Canvas.Left="26" Canvas.Top="158"></Label>
+                    <TextBox Width="150" Canvas.Left="87" Canvas.Top="163" Height="21" Text="{Binding SelectedKrestni, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <Label Content="Příjmení" Canvas.Left="26" Canvas.Top="184"/>
+                    <TextBox Width="150" Canvas.Left="87" Canvas.Top="189" Height="21" Text="{Binding SelectedPrijmeni, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label Content="Telefon" Canvas.Left="26" Canvas.Top="210"/>
+                    <TextBox Width="150" Canvas.Left="87" Canvas.Top="215" Height="21" Text="{Binding SelectedTelefon, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Button Content="Smazat" Command="{Binding DeleteCommand}" Canvas.Left="388" Canvas.Top="261"></Button>
+                </Canvas>
+
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

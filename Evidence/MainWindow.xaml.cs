@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Evidence.ViewModel;
 
 namespace Evidence
 {
@@ -23,6 +24,7 @@ namespace Evidence
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new ViewModelMain();
         }
     }
 }
